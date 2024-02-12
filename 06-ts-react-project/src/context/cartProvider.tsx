@@ -100,7 +100,7 @@ const useCartContext = (initState: CartStateType) => {
   }).format(state.cart.reduce((acc, curr) => curr.qty * curr.price + acc, 0));
   const cart = state.cart.sort((a, b) => {
     let aItem = Number(a.sku.slice(-4));
-    let bItem = Number(a.sku.slice(-4));
+    let bItem = Number(b.sku.slice(-4));
     return aItem - bItem;
   });
 
