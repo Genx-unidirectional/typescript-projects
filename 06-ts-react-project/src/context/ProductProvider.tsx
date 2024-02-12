@@ -30,7 +30,7 @@ const initState: ProductState[] = [
     price: 29.99,
   },
 ];
-type UseProductContextType = {
+export type UseProductContextType = {
   products: ProductState[];
 };
 
@@ -67,3 +67,5 @@ export const ProductProvider = ({ children }: ChildrenType): ReactElement => {
     </ProductContext.Provider>
   );
 };
+
+export default ProductContext;

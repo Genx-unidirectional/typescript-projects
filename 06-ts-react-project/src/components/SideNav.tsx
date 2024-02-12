@@ -5,15 +5,11 @@ type PropsType = {
 
 const NavLinks = ({ view, setView }: PropsType) => {
   return (
-    <nav>
+    <nav className="nav">
       {view ? (
-        <button className="header--nav-btn" onClick={() => setView(false)}>
-          View Products
-        </button>
+        <button onClick={() => setView(false)}>View Products</button>
       ) : (
-        <button className="header--nav-btn" onClick={() => setView(true)}>
-          View Cart
-        </button>
+        <button onClick={() => setView(true)}>View Cart</button>
       )}
     </nav>
   );

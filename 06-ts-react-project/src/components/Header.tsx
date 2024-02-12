@@ -9,12 +9,14 @@ const Header = ({ view, setView }: PropsType) => {
   const { totalItems, totalPrice } = useCart();
   return (
     <header className="header">
-      <h1>Acme Co.</h1>
-      <div className="header--div">
-        <p>TotalPrice : {totalPrice}</p>
-        <p>TotalItems : {totalItems}</p>
-        <NavLinks view={view} setView={setView} />
+      <div className="header__title-bar">
+        <h1>Acme Co.</h1>
+        <div className="header__price-box">
+          <p>TotalPrice : {totalPrice}</p>
+          <p>TotalItems : {totalItems}</p>
+        </div>
       </div>
+      <NavLinks view={view} setView={setView} />
     </header>
   );
 };
