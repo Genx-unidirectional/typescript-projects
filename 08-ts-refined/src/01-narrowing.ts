@@ -56,10 +56,10 @@ function mapIt(
 // undefined == null returns true due to type coercion, but undefined === null returns false because they are of different types.
 
 // using in operator in narrowing
-type bird = { fly: () => void };
-type fish = { swim: () => void };
+type Bird = { fly: () => void };
+type Fish = { swim: () => void };
 
-function action(animal: fish | bird): void {
+function action(animal: Fish | Bird): void {
   if ("swim" in animal) {
     return animal.swim();
   } else {
@@ -67,9 +67,9 @@ function action(animal: fish | bird): void {
   }
 }
 
-type human = { swim: () => void; fly: () => void };
+type Human = { swim: () => void; fly: () => void };
 
-function action2(animal: fish | bird | human): void {
+function action2(animal: Fish | Bird | Human): void {
   if ("swim" in animal) {
     animal;
   } else {
@@ -83,5 +83,127 @@ function dateChecker(date: Date | string): string {
     return date.getTime().toString();
   } else {
     return date;
+  }
+}
+
+// If type is not provided to variable typescript infer it based on right side value
+//see the type assign to x and x2 based on const and let which is nothing but using i.e what is going to be used next
+let x = Math.random() < 0.5 ? 10 : "hello world";
+const x2 = Math.random() < 0.5 ? 10 : "hello world";
+
+// Control Flow Analysis
+
+function padRight(padding: number | string, str: string): string {
+  if (typeof padding === "number") {
+    return str + " ".repeat(padding);
+  } else {
+    return str + padding;
+  }
+}
+
+// In above code we add type guard and check typeof the padding and then use the function on it and add it to the string str and typescript understand the str + padding this line is unreachable when the padding is number as result it remove the number type from padding to the rest of the function
+// That's said typescript does analysis based on reachability of the variable based on it's type is called control flow analysis.
+
+function example() {
+  let x: string | number | boolean;
+  x = false;
+
+  if (Math.random() > 0.5) {
+    x = "hello";
+  } else {
+    x = 12;
+  }
+  return x;
+}
+
+// In above ,When a variable is analyzed, control flow can split off and re-merge over and over again, and that variable can be observed to have a different type at each point.
+
+// Type Predicates
+
+function isFish(pet: Fish | Bird): pet is Fish {
+  return (pet as Fish).swim !== undefined;
+}
+
+// In above code we predicate the pet as a Fish by failing the typescript using as and check that pet contain swim method
+
+// We can use above predicate to narrow down the type in if checks
+
+const pet = { swim: () => {} };
+
+function whatItIs(pet: Fish | Bird): void {
+  if (isFish(pet)) {
+    pet.swim();
+  } else {
+    pet.fly();
+  }
+}
+
+// Q - Make the Array of pets and filter out those pet who are fish
+
+const petArray: (Fish | Bird)[] = [
+  { fly: () => {} },
+  { fly: () => {} },
+  { swim: () => {} },
+  { swim: () => {} },
+];
+
+const filteredFishArr = petArray.filter(isFish);
+
+//Assertion function is function which takes any type and return asserted type of condition is true
+
+interface Car {
+  brand: string;
+  engine: string;
+}
+
+function isCar(obj: any): obj is Car {
+  return obj && typeof obj.brand === "string" && typeof obj.engine === "string";
+}
+
+// Using the Discriminated unions
+
+// We use discriminated  union when we identified the combination type has one similar property but it's value is different
+
+// Q- Make the Circle and Square and assign their union to single type which is Shape and use discriminated unions narrow the type
+
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  sideLength: number;
+}
+
+type Shape = Circle | Square;
+
+function area(shape: Shape) {
+  switch (shape.kind) {
+    case "circle": {
+      return Math.PI * shape.radius ** 2;
+    }
+    case "square": {
+      return shape.sideLength * 4;
+    }
+    default: {
+      throw new Error("Wrong shape");
+    }
+  }
+}
+
+//Exhaustive check
+function area2(shape: Shape) {
+  switch (shape.kind) {
+    case "circle": {
+      return Math.PI * shape.radius ** 2;
+    }
+    case "square": {
+      return shape.sideLength * 4;
+    }
+    default: {
+      const _exhaustiveType: never = shape;
+      return _exhaustiveType;
+    }
   }
 }
