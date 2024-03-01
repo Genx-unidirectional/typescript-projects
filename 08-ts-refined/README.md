@@ -37,3 +37,12 @@
 -->Making optional parameters in function unnecessary will cause later undefined problem in function body.
 
 --> If we make void return type function but we return something from that function then we assign that function to a variable that variable takes void type not a a return type of that function
+
+# Objects (03-objects.ts)
+
+-->Mantra for object: interface or type schema| readonly or optional props |
+index signatures | Excess property checking if there are optional fields | Extending types |Intersection types | Generics in objects
+
+-->When its comes to optional fields in interfaces we perform excess property checks i.e if optional props having object pass in function we check its props and return alternate value for that props if they are undefined
+
+# Array (04-array.ts)

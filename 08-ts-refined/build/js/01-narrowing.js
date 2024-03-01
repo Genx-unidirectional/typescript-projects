@@ -119,7 +119,7 @@ const filteredFishArr = petArray.filter(isFish);
 function isCar(obj) {
     return obj && typeof obj.brand === "string" && typeof obj.engine === "string";
 }
-function area(shape) {
+function area1(shape) {
     switch (shape.kind) {
         case "circle": {
             return Math.PI * shape.radius ** 2;

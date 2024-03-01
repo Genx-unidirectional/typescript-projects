@@ -179,7 +179,7 @@ interface Square {
 
 type Shape = Circle | Square;
 
-function area(shape: Shape) {
+function area1(shape: Shape) {
   switch (shape.kind) {
     case "circle": {
       return Math.PI * shape.radius ** 2;
