@@ -46,3 +46,16 @@ index signatures | Excess property checking if there are optional fields | Exten
 -->When its comes to optional fields in interfaces we perform excess property checks i.e if optional props having object pass in function we check its props and return alternate value for that props if they are undefined
 
 # Array (04-array.ts)
+
+-->Mantra for array:use generics | use as const for making tuple |making readonly array | making readonly tuple
+
+-->We can make array readonly but we cannot assign them to normal array
+
+-->We can make the tuple and assign another similar non tuple to it
+
+-->Why there is need of making readonly?
+
+-->Difference between tuple and readonly array:
+for tuple :We can assign other array which compliant of that tuple type
+
+for readonly array: we cannot assign another array which has exact same type of that readonly array because that array pointing the address and the readonly pointing the address will be same that never going to be happen because when we assign normal array to readonly array we are mutating the values of that readonly array by assigning to normal array
