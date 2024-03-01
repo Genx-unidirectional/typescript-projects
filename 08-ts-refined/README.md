@@ -25,3 +25,15 @@
 -->Whenever we see the types union having one property same we have to use discriminated union types there to narrow down them and we also use switch statements in there which is useful.
 
 -->Exhaustive check: when no union type is left after returning we return never.
+
+# Functions (02-functions.ts)
+
+-->Mantra using types in function :making function signatures | construct signatures | generics | extended generics | optional parameter in function for overloads | rest parameters | making function argument as tuple | giving type to object argument while destructuring
+
+-->Optional logic in interface :We can make two function signatures in one interface one is callable and another is constructor both have (str:string) as an argument but one of them is optional i.e (str? :string) when we do this we can make the interface which either function or a constructor based on that optional value
+
+-->Using generics in function: If don't know what parameter coming inside the function instead of type any we use generic which creates link between input and output generic hold the input type which can be use late in the function.
+
+-->Making optional parameters in function unnecessary will cause later undefined problem in function body.
+
+--> If we make void return type function but we return something from that function then we assign that function to a variable that variable takes void type not a a return type of that function
