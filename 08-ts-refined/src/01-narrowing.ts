@@ -7,6 +7,7 @@ function working(work: string | boolean): string {
   }
   return "Not working";
 }
+console.log(null === undefined);
 
 // Q-Narrow down based on what is typeof padding
 
