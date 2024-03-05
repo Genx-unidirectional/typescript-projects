@@ -59,3 +59,5 @@ index signatures | Excess property checking if there are optional fields | Exten
 for tuple :We can assign other array which compliant of that tuple type
 
 for readonly array: we cannot assign another array which has exact same type of that readonly array because that array pointing the address and the readonly pointing the address will be same that never going to be happen because when we assign normal array to readonly array we are mutating the values of that readonly array by assigning to normal array
+
+# Utility
