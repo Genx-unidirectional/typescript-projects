@@ -8,11 +8,9 @@
 
 -->Mantra for narrowing : if check | type guard(i.e using typeof in if) | falsy checks | using in operator | using instanceOf | using predicate | using assertion function | discriminated unions
 
--->If we want to make a type which is superset of preceding two types we can it's parameters optional so that event after narrowing down it will appear again ( line no :59)
+-->If we want to make a type which is superset of preceding two types ,we can make it's parameters optional so that even after narrowing down it will appear again ( line no :59)
 
 -->We know that in js in if statement the falsy values are coerced into boolean and then they decide code inside the if statement is going to be executed or not
-
--->In typescript because strict mode is on we can use == , != in if statement also === ,!== both work same but in js != , == only check the value
 
 -->In TypeScript, the behavior we are (Line no :91) observing is due to how TypeScript infers the types based on the assignment and usage of the variables.
 
@@ -61,3 +59,10 @@ for tuple :We can assign other array which compliant of that tuple type
 for readonly array: we cannot assign another array which has exact same type of that readonly array because that array pointing the address and the readonly pointing the address will be same that never going to be happen because when we assign normal array to readonly array we are mutating the values of that readonly array by assigning to normal array
 
 # Utility
+
+# Classes
+
+-> we have to explicitly call the base class method with super keyword of if the
+
+->We can put more specified type to the base class fields which are initialized in the base class we use declare keyword for the field which we are going to give more detailed type in the derived class
+->Protected fields cannot be accessed via derived class instance
