@@ -141,3 +141,13 @@ const testObj2 = {
 };
 
 console.log(testObj2.getName());
+
+//Experiment
+
+interface Test4 {
+  x: number;
+}
+
+class ApplierOne implements Test4 {
+  x: number = 0;
+}

@@ -128,7 +128,7 @@ function multiply(factor, arr) {
 //Making tuple
 const arr = [1, 2, 3];
 //Destructuring in function
-function getObj({ a, b, c }) { }
+function getObj({ a, b, c } = { a: 0, b: 0, c: 0 }) { }
 const letsSee = () => {
     return "j";
 };

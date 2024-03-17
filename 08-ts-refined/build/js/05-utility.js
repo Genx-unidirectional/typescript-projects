@@ -1,12 +1,5 @@
 "use strict";
 // Awaited
-//Partial
-//Readonly
-//Record
-//Pick
-//Omit
-//Exclude
-//Extract
 //NonNullable
 //Parameters
 //ConstructorParameters

@@ -103,3 +103,6 @@ const testObj2 = {
     getName: t2.getName,
 };
 console.log(testObj2.getName());
+class ApplierOne {
+    x = 0;
+}

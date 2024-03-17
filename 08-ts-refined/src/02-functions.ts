@@ -203,7 +203,9 @@ const arr = [1, 2, 3] as const;
 
 //Destructuring in function
 
-function getObj({ a, b, c }: { a: number; b: number; c: number }) {}
+function getObj(
+  { a, b, c }: { a: number; b: number; c: number } = { a: 0, b: 0, c: 0 }
+) {}
 
 //Void
 
