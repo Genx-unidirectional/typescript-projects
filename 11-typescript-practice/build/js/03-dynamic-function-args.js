@@ -5,7 +5,8 @@
 // sendEvent("SIGN_OUT", {});
 // sendEvent("LOG_IN", { userId: "101" });
 // corrected code
-//below here are reason out the second argument on the fly
+//below here are reason out the second argument on the fly i.e we create a tuple so as to reason out the whats coming which gives better type checking
 const sendEvent = (...args) => { };
 sendEvent("LOG_IN", { userId: "101" });
 sendEvent("SIGN_OUT");
+//So basically when the we are passing the arguments and which is of type object and second argument is based on first argument should be present or not that's why we crate tuple by reasoning out the first argument on the fly
