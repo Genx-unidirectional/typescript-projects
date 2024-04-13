@@ -74,17 +74,17 @@ const getObjectKeys = <T>(obj: T) =>
 // };
 function filterPersons(
   persons: Person[],
-  personType: string,
+  personType: User["type"],
   criteria: Partial<Omit<User, "type">>
 ): User[];
 function filterPersons(
   persons: Person[],
-  personType: string,
+  personType: Admin["type"],
   criteria: Partial<Omit<Admin, "type">>
 ): Admin[];
 function filterPersons(
   persons: Person[],
-  personType: string,
+  personType: Person["type"],
   criteria: Partial<Person>
 ): Person[] {
   return persons
